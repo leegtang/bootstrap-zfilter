@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap zfilter</title>
+
+<!-- Bootstrap -->
+<link href="libs/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<link href="zfilter/zfilter.css" rel="stylesheet">
+	
+<script src="libs/js/jquery.min.js"></script>
+<script src="libs/js/bootstrap.min.js"></script> 
+ 
+</head>
+<body>
+<script src="zfilter/zfilter.js"></script>
+<div class="container">
+<div id="cblock"></div>
+</div>
+<script>
+function cbk(p){
+	console.log('params:'+p);
+	alert(p);
+}
+jQuery("body").zfilter( {
+	obj : 'cblock',
+	callback : cbk,
+	params :[
+                  {content:'性别',
+                   tag:'sex',
+                   data:[
+		        	   {value:'-1',title:'全部'},
+		        	   {value:'0',title:'男'},
+		        	   {value:'1',title:'女'}
+		        	]},
+		           {content:'年龄',
+			        tag:'age',
+			        data:[
+					    {value:'-1',title:'全部'},
+        	         	{value:'0',title:'19-22'},
+        	         	{value:'1',title:'22-26'}
+        	        ]}
+   ]
+});
+</script>
+
+</body>
+</html>
